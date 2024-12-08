@@ -5,6 +5,7 @@ import random
 
 def generate_problem():
     mask_entry.delete(0, tk.END)  # Clear any previous answer
+    mask_entry.config(fg="white")  # Reset the text color to black
     question_label.config(text="")  # Clear any previous question
     scenario = scenario_var.get()
     if scenario == "Host Design":
@@ -12,10 +13,17 @@ def generate_problem():
     elif scenario == "Subnet Design":
         generate_subnet_problem()
 
+    # Show input box and button after generating the first problem
+    mask_entry.pack(pady=5)
+    check_button.pack(pady=10)
+
 
 def generate_host_problem():
     global net_id, prefix, required_hosts, correct_mask
-    prefix = random.randint(8, 24)  # Random starting prefix
+    if random.choice([True, False]):  # 50% chance to use an even octet
+        prefix = random.choice([8, 16, 24])
+    else:
+        prefix = random.randint(8, 24)  # Random starting prefix
     net_id = f"{random.randint(1, 223)}.{random.randint(0, 255)}.{random.randint(0, 255)}.0/{prefix}"
     required_hosts = random.randint(200, 4000)  # Random number of hosts
 
@@ -38,7 +46,10 @@ def generate_host_problem():
 
 def generate_subnet_problem():
     global net_id, prefix, required_subnets, correct_mask
-    prefix = random.randint(8, 24)  # Random starting prefix
+    if random.choice([True, False]):  # 50% chance to use an even octet
+        prefix = random.choice([8, 16, 24])
+    else:
+        prefix = random.randint(8, 24)  # Random starting prefix
     net_id = f"{random.randint(1, 223)}.{random.randint(0, 255)}.{random.randint(0, 255)}.0/{prefix}"
     required_subnets = random.randint(16, 20000)  # Random number of subnets
 
@@ -69,54 +80,63 @@ def prefix_to_mask(prefix):
 def reset_ui():
     """Reset the UI to its default state."""
     mask_entry.delete(0, tk.END)  # Clear the input field
+    mask_entry.config(fg="black")  # Reset the text color to black
     question_label.config(text="")  # Clear the question
     scenario_var.set("Host Design")  # Reset the scenario selection to default
 
 
 def check_answer():
-    user_answer = mask_entry.get()
+    user_answer = mask_entry.get().strip()
+    if not user_answer:  # Check if the input is empty
+        messagebox.showerror("Error", "Please enter a subnet mask before submitting.")
+        return
     if user_answer == correct_mask:
         messagebox.showinfo("Result", "You are correct!")
+        mask_entry.config(fg="green")  # Set the text color to green for correct answers
     else:
         messagebox.showinfo(
             "Result",
             f"Sorry, you're incorrect. The correct answer is {correct_mask}. "
             f"Make sure you're using the methodology to determine the new subnet mask."
         )
-    reset_ui()  # Reset the UI after the user closes the result window
+        mask_entry.config(fg="red")  # Set the text color to red for incorrect answers
 
 
 # Create the GUI
 root = tk.Tk()
-root.geometry("600x400")
+root.geometry("600x400")  # Set the window size
 root.title("Subnetting Practice Tool")
 
 # Add padding around the entire content
 main_frame = tk.Frame(root, padx=20, pady=20)
-main_frame.pack(fill="none", expand=False, anchor="n", pady=20)
+main_frame.pack(fill="both", expand=True, anchor="n")
 
 # Scenario selection
 scenario_var = tk.StringVar(value="Host Design")
-tk.Label(root, text="Select Scenario:").pack()
-tk.Radiobutton(root, text="Host Design", variable=scenario_var, value="Host Design").pack()
-tk.Radiobutton(root, text="Subnet Design", variable=scenario_var, value="Subnet Design").pack()
+tk.Label(main_frame, text="Select Scenario:").pack(pady=5)
+tk.Radiobutton(main_frame, text="Host Design", variable=scenario_var, value="Host Design").pack(pady=2)
+tk.Radiobutton(main_frame, text="Subnet Design", variable=scenario_var, value="Subnet Design").pack(pady=2)
 
 # Generate problem button
-generate_button = tk.Button(root, text="Generate Problem", command=generate_problem)
-generate_button.pack()
+generate_button = tk.Button(main_frame, text="Generate Problem", command=generate_problem)
+generate_button.pack(pady=10)
 
 # Question label
-question_label = tk.Label(root, text="", wraplength=400, justify="left")
-question_label.pack()
+question_label = tk.Label(main_frame, text="", wraplength=550, justify="left")
+question_label.pack(pady=10)
 
 # Input for subnet mask
-tk.Label(root, text="Enter the new subnet mask:").pack()
-mask_entry = tk.Entry(root)
-mask_entry.pack()
+mask_entry = tk.Entry(main_frame, fg="white", bg="black")  # Set initial font color to white
+mask_entry.pack_forget()  # Initially hidden
+
+# Bind the Return key (main keyboard) and Enter key (external/numpad) to check_answer
+root.bind('<Return>', lambda event: check_answer())
+root.bind('<KP_Enter>', lambda event: check_answer())
 
 # Check answer button
-check_button = tk.Button(root, text="Check Answer", command=check_answer)
-check_button.pack()
+check_button = tk.Button(main_frame, text="Check Answer", command=check_answer)
+check_button.pack_forget()  # Initially hidden
+
 
 # Start the GUI
 root.mainloop()
