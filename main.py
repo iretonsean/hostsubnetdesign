@@ -1,11 +1,10 @@
 import tkinter as tk
-from tkinter import messagebox
+from tkinter import ttk, messagebox
 import random
-
 
 def generate_problem():
     mask_entry.delete(0, tk.END)  # Clear any previous answer
-    mask_entry.config(fg="white")  # Reset the text color to black
+    mask_entry.config(fg="white")  # Reset the text color to white
     question_label.config(text="")  # Clear any previous question
     scenario = scenario_var.get()
     if scenario == "Host Design":
@@ -104,28 +103,36 @@ def check_answer():
 
 # Create the GUI
 root = tk.Tk()
-root.geometry("600x400")  # Set the window size
-root.title("Subnetting Practice Tool - Design")
+root.geometry("800x600")  # Set the window size
+root.title("Subnetting Practice Tool")
 
-# Add padding around the entire content
-main_frame = tk.Frame(root, padx=20, pady=20)
+# Create the tabs using ttk.Notebook
+notebook = ttk.Notebook(root)
+notebook.pack(fill="both", expand=True)
+
+# Tab 1: Subnet Design Practice
+tab1 = ttk.Frame(notebook)
+notebook.add(tab1, text="Subnet Design Practice")
+
+# Add padding around the entire content in tab1
+main_frame = tk.Frame(tab1, padx=20, pady=20)
 main_frame.pack(fill="both", expand=True, anchor="n")
 
-# Scenario selection
+# Scenario selection in tab1
 scenario_var = tk.StringVar(value="Host Design")
 tk.Label(main_frame, text="Select Scenario:").pack(pady=5)
 tk.Radiobutton(main_frame, text="Host Design", variable=scenario_var, value="Host Design").pack(pady=2)
 tk.Radiobutton(main_frame, text="Subnet Design", variable=scenario_var, value="Subnet Design").pack(pady=2)
 
-# Generate problem button
+# Generate problem button in tab1
 generate_button = tk.Button(main_frame, text="Generate Problem", command=generate_problem)
 generate_button.pack(pady=10)
 
-# Question label
+# Question label in tab1
 question_label = tk.Label(main_frame, text="", wraplength=550, justify="left")
 question_label.pack(pady=10)
 
-# Input for subnet mask
+# Input for subnet mask in tab1
 mask_entry = tk.Entry(main_frame, fg="white", bg="black")  # Set initial font color to white
 mask_entry.pack_forget()  # Initially hidden
 
@@ -133,10 +140,16 @@ mask_entry.pack_forget()  # Initially hidden
 root.bind('<Return>', lambda event: check_answer())
 root.bind('<KP_Enter>', lambda event: check_answer())
 
-# Check answer button
+# Check answer button in tab1
 check_button = tk.Button(main_frame, text="Check Answer", command=check_answer)
 check_button.pack_forget()  # Initially hidden
 
+# Tab 2: Subnet Analysis Practice (Empty for now)
+tab2 = ttk.Frame(notebook)
+notebook.add(tab2, text="Subnet Analysis Practice")
+
+# Placeholder content for Tab 2
+tk.Label(tab2, text="Subnet Analysis Practice Content Goes Here", font=("Arial", 14)).pack(pady=20)
 
 # Start the GUI
 root.mainloop()

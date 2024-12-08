@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f0ffc44-147c-46d6-b2bf-dd1f3f048ac2" name="Changes" comment="added padding to main frame.">
-      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="3f0ffc44-147c-46d6-b2bf-dd1f3f048ac2" name="Changes" comment="- UX improvements: highlight correct answer in green, incorrect answer in red, hide answer input on initial load, require user to click generate button before previous answer clears.&#10;- Logic improvements: 50% chance of generating an IP split on an even octet boundary (/8, /16, /24, etc.)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,7 +83,7 @@
       <updated>1733687864915</updated>
       <workItem from="1733687865924" duration="2198000" />
       <workItem from="1733693208955" duration="46000" />
-      <workItem from="1733693259816" duration="3335000" />
+      <workItem from="1733693259816" duration="3847000" />
     </task>
     <task id="LOCAL-00001" summary="Created program">
       <option name="closed" value="true" />
@@ -113,7 +109,23 @@
       <option name="project" value="LOCAL" />
       <updated>1733688844216</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="- UX improvements: highlight correct answer in green, incorrect answer in red, hide answer input on initial load, require user to click generate button before previous answer clears.&#10;- Logic improvements: 50% chance of generating an IP split on an even octet boundary (/8, /16, /24, etc.)">
+      <option name="closed" value="true" />
+      <created>1733697340483</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1733697340483</updated>
+    </task>
+    <task id="LOCAL-00005" summary="- UX improvements: highlight correct answer in green, incorrect answer in red, hide answer input on initial load, require user to click generate button before previous answer clears.&#10;- Logic improvements: 50% chance of generating an IP split on an even octet boundary (/8, /16, /24, etc.)">
+      <option name="closed" value="true" />
+      <created>1733697576945</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1733697576945</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,9 +135,10 @@
     <MESSAGE value="Created program" />
     <MESSAGE value="updated commit from local" />
     <MESSAGE value="added padding to main frame." />
-    <option name="LAST_COMMIT_MESSAGE" value="added padding to main frame." />
+    <MESSAGE value="- UX improvements: highlight correct answer in green, incorrect answer in red, hide answer input on initial load, require user to click generate button before previous answer clears.&#10;- Logic improvements: 50% chance of generating an IP split on an even octet boundary (/8, /16, /24, etc.)" />
+    <option name="LAST_COMMIT_MESSAGE" value="- UX improvements: highlight correct answer in green, incorrect answer in red, hide answer input on initial load, require user to click generate button before previous answer clears.&#10;- Logic improvements: 50% chance of generating an IP split on an even octet boundary (/8, /16, /24, etc.)" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/HostSubnetDesign$main.coverage" NAME="main Coverage Results" MODIFIED="1733696437295" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/HostSubnetDesign$main.coverage" NAME="main Coverage Results" MODIFIED="1733697586408" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
