@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f0ffc44-147c-46d6-b2bf-dd1f3f048ac2" name="Changes" comment="- UX improvements: highlight correct answer in green, incorrect answer in red, hide answer input on initial load, require user to click generate button before previous answer clears.&#10;- Logic improvements: 50% chance of generating an IP split on an even octet boundary (/8, /16, /24, etc.)" />
+    <list default="true" id="3f0ffc44-147c-46d6-b2bf-dd1f3f048ac2" name="Changes" comment="- program enhancement: added new tab for subnet analysis." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,7 +83,7 @@
       <updated>1733687864915</updated>
       <workItem from="1733687865924" duration="2198000" />
       <workItem from="1733693208955" duration="46000" />
-      <workItem from="1733693259816" duration="3847000" />
+      <workItem from="1733693259816" duration="4580000" />
     </task>
     <task id="LOCAL-00001" summary="Created program">
       <option name="closed" value="true" />
@@ -125,7 +125,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733697576945</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="- program enhancement: added new tab for subnet analysis.">
+      <option name="closed" value="true" />
+      <created>1733697770135</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1733697770135</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,9 +144,10 @@
     <MESSAGE value="updated commit from local" />
     <MESSAGE value="added padding to main frame." />
     <MESSAGE value="- UX improvements: highlight correct answer in green, incorrect answer in red, hide answer input on initial load, require user to click generate button before previous answer clears.&#10;- Logic improvements: 50% chance of generating an IP split on an even octet boundary (/8, /16, /24, etc.)" />
-    <option name="LAST_COMMIT_MESSAGE" value="- UX improvements: highlight correct answer in green, incorrect answer in red, hide answer input on initial load, require user to click generate button before previous answer clears.&#10;- Logic improvements: 50% chance of generating an IP split on an even octet boundary (/8, /16, /24, etc.)" />
+    <MESSAGE value="- program enhancement: added new tab for subnet analysis." />
+    <option name="LAST_COMMIT_MESSAGE" value="- program enhancement: added new tab for subnet analysis." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/HostSubnetDesign$main.coverage" NAME="main Coverage Results" MODIFIED="1733697586408" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/HostSubnetDesign$main.coverage" NAME="main Coverage Results" MODIFIED="1733697774465" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
