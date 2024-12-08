@@ -105,7 +105,7 @@ def check_answer():
 # Create the GUI
 root = tk.Tk()
 root.geometry("600x400")  # Set the window size
-root.title("Subnetting Practice Tool")
+root.title("Subnetting Practice Tool - Design")
 
 # Add padding around the entire content
 main_frame = tk.Frame(root, padx=20, pady=20)
