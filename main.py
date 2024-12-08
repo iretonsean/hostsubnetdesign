@@ -88,7 +88,12 @@ def check_answer():
 
 # Create the GUI
 root = tk.Tk()
+root.geometry("600x400")
 root.title("Subnetting Practice Tool")
+
+# Add padding around the entire content
+main_frame = tk.Frame(root, padx=20, pady=20)
+main_frame.pack(fill="none", expand=False, anchor="n", pady=20)
 
 # Scenario selection
 scenario_var = tk.StringVar(value="Host Design")
