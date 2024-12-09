@@ -30,7 +30,7 @@ The tool dynamically generates subnetting problems and validates the user's answ
 
 1. **Clone or Download the Repository**:
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/iretonsean/hostsubnetdesign.git
    cd subnetting-practice-tool
    ```
 
