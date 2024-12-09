@@ -3,21 +3,21 @@ from tkinter import ttk
 from subnet_design import SubnetDesignTab
 from subnet_analysis import SubnetAnalysisTab
 
-# Create the main GUI
+# Create the main window
 root = tk.Tk()
 root.geometry("800x600")
 root.title("Subnetting Practice Tool")
 
-# Create tabs using ttk.Notebook
+# Create a tabbed interface
 notebook = ttk.Notebook(root)
 notebook.pack(fill="both", expand=True)
 
-# Add Subnet Design Practice Tab
+# Subnet Design Tab
 design_tab = ttk.Frame(notebook)
 notebook.add(design_tab, text="Subnet Design Practice")
 SubnetDesignTab(design_tab)
 
-# Add Subnet Analysis Practice Tab
+# Subnet Analysis Tab
 analysis_tab = ttk.Frame(notebook)
 notebook.add(analysis_tab, text="Subnet Analysis Practice")
 SubnetAnalysisTab(analysis_tab)

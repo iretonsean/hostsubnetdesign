@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f0ffc44-147c-46d6-b2bf-dd1f3f048ac2" name="Changes" comment="- program enhancement: refactor code (clean up) to use three files instead of one large one." />
+    <list default="true" id="3f0ffc44-147c-46d6-b2bf-dd1f3f048ac2" name="Changes" comment="- logic improvement: fix IP generation (top row)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subnet_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/subnet_analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subnet_design.py" beforeDir="false" afterPath="$PROJECT_DIR$/subnet_design.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,6 +57,7 @@
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Python.main.executor": "Run",
+    "Python.subnet_analysis.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -83,7 +89,7 @@
       <updated>1733687864915</updated>
       <workItem from="1733687865924" duration="2198000" />
       <workItem from="1733693208955" duration="46000" />
-      <workItem from="1733693259816" duration="4893000" />
+      <workItem from="1733693259816" duration="11906000" />
     </task>
     <task id="LOCAL-00001" summary="Created program">
       <option name="closed" value="true" />
@@ -141,7 +147,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733698579979</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="- logic improvement: fix IP generation (top row)">
+      <option name="closed" value="true" />
+      <created>1733698709318</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1733698709318</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,9 +168,11 @@
     <MESSAGE value="- UX improvements: highlight correct answer in green, incorrect answer in red, hide answer input on initial load, require user to click generate button before previous answer clears.&#10;- Logic improvements: 50% chance of generating an IP split on an even octet boundary (/8, /16, /24, etc.)" />
     <MESSAGE value="- program enhancement: added new tab for subnet analysis." />
     <MESSAGE value="- program enhancement: refactor code (clean up) to use three files instead of one large one." />
-    <option name="LAST_COMMIT_MESSAGE" value="- program enhancement: refactor code (clean up) to use three files instead of one large one." />
+    <MESSAGE value="- logic improvement: fix IP generation (top row)" />
+    <option name="LAST_COMMIT_MESSAGE" value="- logic improvement: fix IP generation (top row)" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/HostSubnetDesign$main.coverage" NAME="main Coverage Results" MODIFIED="1733698429332" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/HostSubnetDesign$main.coverage" NAME="main Coverage Results" MODIFIED="1733705033982" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/HostSubnetDesign$subnet_analysis.coverage" NAME="subnet_analysis Coverage Results" MODIFIED="1733698712912" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
