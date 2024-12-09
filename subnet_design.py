@@ -55,7 +55,21 @@ def generate_problem(question_label, mask_entry, check_button, scenario_var):
     if scenario == "Host Design":
         required_hosts = random.randint(200, 4000)
         prefix = generate_random_prefix()  # Use the new prefix generation function
-        net_id = f"{random.randint(1, 223)}.{random.randint(0, 255)}.{random.randint(0, 255)}.0/{prefix}"
+
+        # Generate random IP and zero out host octets based on the prefix
+        first_octet = random.randint(1, 223)
+        second_octet = random.randint(0, 255)
+        third_octet = random.randint(0, 255)
+        fourth_octet = 0
+
+        if prefix <= 8:
+            net_id = f"{first_octet}.0.0.0/{prefix}"
+        elif prefix <= 16:
+            net_id = f"{first_octet}.{second_octet}.0.0/{prefix}"
+        elif prefix <= 24:
+            net_id = f"{first_octet}.{second_octet}.{third_octet}.0/{prefix}"
+        else:
+            net_id = f"{first_octet}.{second_octet}.{third_octet}.{fourth_octet}/{prefix}"
 
         # Calculate the correct subnet mask
         host_bits = 0
@@ -75,7 +89,21 @@ def generate_problem(question_label, mask_entry, check_button, scenario_var):
     elif scenario == "Subnet Design":
         required_subnets = random.randint(16, 2000)
         prefix = generate_random_prefix()  # Use the new prefix generation function
-        net_id = f"{random.randint(1, 223)}.{random.randint(0, 255)}.{random.randint(0, 255)}.0/{prefix}"
+
+        # Generate random IP and zero out host octets based on the prefix
+        first_octet = random.randint(1, 223)
+        second_octet = random.randint(0, 255)
+        third_octet = random.randint(0, 255)
+        fourth_octet = 0
+
+        if prefix <= 8:
+            net_id = f"{first_octet}.0.0.0/{prefix}"
+        elif prefix <= 16:
+            net_id = f"{first_octet}.{second_octet}.0.0/{prefix}"
+        elif prefix <= 24:
+            net_id = f"{first_octet}.{second_octet}.{third_octet}.0/{prefix}"
+        else:
+            net_id = f"{first_octet}.{second_octet}.{third_octet}.{fourth_octet}/{prefix}"
 
         # Calculate the correct subnet mask
         subnet_bits = 0
