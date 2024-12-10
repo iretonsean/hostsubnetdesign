@@ -125,7 +125,14 @@ def prefix_to_mask(prefix):
     mask = [0, 0, 0, 0]
     for i in range(prefix):
         mask[i // 8] += (1 << (7 - (i % 8)))
+
+    # Apply the 15% chance logic only if `240` exists in the mask
+    if 240 in mask and random.random() > 0.15:  # 85% chance to modify
+        mask = [octet if octet != 240 else 255 for octet in mask]
+
     return ".".join(map(str, mask))
+
+
 
 
 def generate_random_prefix():
