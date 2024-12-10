@@ -86,7 +86,11 @@ def generate_problem(question_label, mask_entry, check_button, scenario_var):
 
     elif scenario == "Subnet Design":
         # Generate more challenging subnet requirements
-        required_subnets = random.randint(500, 17000)
+        powers_of_two = [2 ** i for i in range(1, 15)]  # Powers of 2 from 2 to 16384
+        if random.random() < 0.25:  # 25% chance to match a placeholder
+            required_subnets = random.choice(powers_of_two)
+        else:
+            required_subnets = random.randint(500, 17000)
 
         # Calculate the correct subnet mask
         subnet_bits = 0
