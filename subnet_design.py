@@ -52,24 +52,22 @@ def generate_problem(question_label, mask_entry, check_button, scenario_var):
 
     # Generate a random question based on the scenario
     global correct_mask  # Store the dynamically calculated mask
+    prefix = generate_random_prefix()  # Always generates /8, /16, or /24
+    first_octet = random.randint(1, 223)
+    second_octet = random.randint(0, 255)
+    third_octet = random.randint(0, 255)
+
+    # Zero out host octets based on the prefix
+    if prefix == 8:
+        net_id = f"{first_octet}.0.0.0/{prefix}"
+    elif prefix == 16:
+        net_id = f"{first_octet}.{second_octet}.0.0/{prefix}"
+    elif prefix == 24:
+        net_id = f"{first_octet}.{second_octet}.{third_octet}.0/{prefix}"
+
     if scenario == "Host Design":
-        required_hosts = random.randint(200, 4000)
-        prefix = generate_random_prefix()  # Use the new prefix generation function
-
-        # Generate random IP and zero out host octets based on the prefix
-        first_octet = random.randint(1, 223)
-        second_octet = random.randint(0, 255)
-        third_octet = random.randint(0, 255)
-        fourth_octet = 0
-
-        if prefix <= 8:
-            net_id = f"{first_octet}.0.0.0/{prefix}"
-        elif prefix <= 16:
-            net_id = f"{first_octet}.{second_octet}.0.0/{prefix}"
-        elif prefix <= 24:
-            net_id = f"{first_octet}.{second_octet}.{third_octet}.0/{prefix}"
-        else:
-            net_id = f"{first_octet}.{second_octet}.{third_octet}.{fourth_octet}/{prefix}"
+        # Generate more challenging host requirements
+        required_hosts = random.randint(1000, 17000)
 
         # Calculate the correct subnet mask
         host_bits = 0
@@ -87,23 +85,8 @@ def generate_problem(question_label, mask_entry, check_button, scenario_var):
         )
 
     elif scenario == "Subnet Design":
-        required_subnets = random.randint(16, 2000)
-        prefix = generate_random_prefix()  # Use the new prefix generation function
-
-        # Generate random IP and zero out host octets based on the prefix
-        first_octet = random.randint(1, 223)
-        second_octet = random.randint(0, 255)
-        third_octet = random.randint(0, 255)
-        fourth_octet = 0
-
-        if prefix <= 8:
-            net_id = f"{first_octet}.0.0.0/{prefix}"
-        elif prefix <= 16:
-            net_id = f"{first_octet}.{second_octet}.0.0/{prefix}"
-        elif prefix <= 24:
-            net_id = f"{first_octet}.{second_octet}.{third_octet}.0/{prefix}"
-        else:
-            net_id = f"{first_octet}.{second_octet}.{third_octet}.{fourth_octet}/{prefix}"
+        # Generate more challenging subnet requirements
+        required_subnets = random.randint(500, 17000)
 
         # Calculate the correct subnet mask
         subnet_bits = 0
@@ -146,8 +129,5 @@ def prefix_to_mask(prefix):
 
 
 def generate_random_prefix():
-    """Generate a random prefix with a 50% chance for even octet boundary."""
-    if random.choice([True, False]):  # 50% chance for even octet boundary
-        return random.choice([8, 16, 24, 30])
-    else:  # Any valid prefix between /8 and /30
-        return random.randint(8, 30)
+    """Generate a random prefix with 100% chance for even octet boundaries."""
+    return random.choice([8, 16, 24])
